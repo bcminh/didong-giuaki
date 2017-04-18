@@ -1,4 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BanAn" representedClassName=".BanAn" syncable="YES">
+        <attribute name="moTa" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ten" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trangThai" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="hinhAnhs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HinhAnh" syncable="YES"/>
+        <relationship name="khuVuc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KhuVuc" inverseName="banAns" inverseEntity="KhuVuc" syncable="YES"/>
+    </entity>
+    <entity name="HinhAnh" representedClassName=".HinhAnh" syncable="YES">
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="HoaDon" representedClassName=".HoaDon" syncable="YES">
+        <attribute name="ngayTao" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="tongTien" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="trangThai" optional="YES" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="ban" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BanAn" syncable="YES"/>
+    </entity>
+    <entity name="KhuVuc" representedClassName=".KhuVuc" syncable="YES">
+        <attribute name="moTa" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ten" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="banAns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BanAn" inverseName="khuVuc" inverseEntity="BanAn" syncable="YES"/>
+        <relationship name="hinhAnhs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HinhAnh" syncable="YES"/>
+    </entity>
+    <entity name="LoaiMon" representedClassName=".LoaiMon" syncable="YES">
+        <attribute name="ten" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="mons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Mon" inverseName="loaiMon" inverseEntity="Mon" syncable="YES"/>
+    </entity>
+    <entity name="Mon" representedClassName=".Mon" syncable="YES">
+        <attribute name="gia" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="moTa" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ten" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="hinhAnhs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HinhAnh" syncable="YES"/>
+        <relationship name="loaiMon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LoaiMon" inverseName="mons" inverseEntity="LoaiMon" syncable="YES"/>
+    </entity>
+    <entity name="ThongKe_SoLuong" representedClassName=".ThongKe_SoLuong" syncable="YES">
+        <attribute name="ngayBan" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="soLuong" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="mon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mon" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BanAn" positionX="-54" positionY="9" width="128" height="120"/>
+        <element name="HinhAnh" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="HoaDon" positionX="9" positionY="117" width="128" height="105"/>
+        <element name="KhuVuc" positionX="-36" positionY="27" width="128" height="105"/>
+        <element name="LoaiMon" positionX="-18" positionY="81" width="128" height="75"/>
+        <element name="Mon" positionX="-27" positionY="63" width="128" height="30"/>
+        <element name="ThongKe_SoLuong" positionX="18" positionY="135" width="128" height="90"/>
+    </elements>
 </model>

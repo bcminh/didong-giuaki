@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  rest_management
 //
-//  Created by Minh Danny on 4/17/17.
-//  Copyright © 2017 Bach Chan Minh. All rights reserved.
+//  Created by Hung Vu on 4/18/17.
+//  Copyright © 2017 lactroi. All rights reserved.
 //
 
 import UIKit
